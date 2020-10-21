@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thyemleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Ajouter Utilisateur</title>
+<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css"
+     th:href="@{/css/bootstrap.min.css}"/>
+  <link rel="stylesheet" type="text/css" href="../static/MyStyle.css"
+     th:href="@{/css/MyStyle.css}"/>
+      <h1>update Formateur </h1>
+<form th:object="${form}" th:action="@{/saveFormateur}" action="/saveFormateur" method="post">
+Enter id: <input type="text" name="id"  th:value="${form.id}"><br/>
+Enter Name: <input type="text" name="nome"  th:value="${form.nome}"><br/>
+Enter Prenome: <input type="text" name="prenome"  th:value="${form.prenome}"><br/>
+Enter Username: <input type="text" name="username"  th:value="${form.username}"><br/>
+Enter Password: <input type="text" name="password"  th:value="${form.password}"><br/>
+Enter Email: <input type="text" name="email"  th:value="${form.email}"><br/>
+Enter Telephone: <input type="text" name="telephone"  th:value="${form.telephone}"><br/>
+Enter Role: <input type="text" name="role"  th:value="${form.role}"><br/>
+Date of Birth:<input type="date" name="dateCreation"  th:value="${form.dateCreation}"><br/>
+Enter Diplome: <input type="text" name="diplome"  th:value="${form.diplome}"><br/>
+Enter Description: <input type="text" name="description"  th:value="${form.description}"><br/>
+
+<button type = "submit" >Modifier</button>
+</form:form>
+

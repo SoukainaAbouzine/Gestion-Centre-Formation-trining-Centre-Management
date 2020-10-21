@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thyemleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Ajouter Utilisateur</title>
+<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css"
+     th:href="@{/css/bootstrap.min.css}"/>
+  <link rel="stylesheet" type="text/css" href="../static/MyStyle.css"
+     th:href="@{/css/MyStyle.css}"/>
+      <h1>Add Employee</h1>
+<form  th:object="${ajouterUer}" th:action="@{/save}" action="/save" method="post">
+Enter Name: <input type="text" name="nome"><br/>
+Enter Prenome: <input type="text" name="prenome"><br/>
+Enter Email: <input type="text" name="email"><br/>
+Enter Telephone :<input type="text" name="telephone"><br/>
+Enter Role: <input type="text" name="role"><br/>
+
+Date of Birth: <input type="date" name="dateCreation"><br/>
+
+<button type = "submit">ajouter</button>
+</form:form>

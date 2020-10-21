@@ -1,0 +1,10 @@
+@charset "ISO-8859-1";
+#main-section{
+	height:300px;
+}
+/* .carousel-inner {
+	background:url("../pages/11.jpg")
+	height:50%;
+} */
+#main-section img{
+	height:200px;}

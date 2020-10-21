@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thyemleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Ajouter Formateur</title>
+<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css"
+     th:href="@{/css/bootstrap.min.css}"/>
+  <link rel="stylesheet" type="text/css" href="../static/MyStyle.css"
+     th:href="@{/css/MyStyle.css}"/>
+      <h1>Add Formateur</h1>
+<form  th:object="${ajouterFormateur}" th:action="@{/saveFormateur}" action="/saveFormateur" method="post">
+Enter Name: <form:input path="nome"/><input type="text" name="nome"><br/><br/>
+Enter Prenome: <form:input path="prenome"/><input type="text" name="prenome"><br/><br/>
+Enter Username: <form:input path="username"/><input type="text" name="username"><br/><br/>
+Enter Password: <form:input path="password"/><input type="text" name="password"><br/><br/>
+Enter Email: <form:input path="email"/><input type="text" name="email"><br/><br/>
+Enter Telephone: <form:input path="telephone"/><input type="text" name="telephone"><br/><br/>
+Enter Role: <form:input path="role"/><input type="text" name="role"><br/><br/>
+Date de Creation: <form:input path="dateCreation" type = "date"/><input type="date" name="dateCreation"><br/><br/>
+Enter diplome:<form:input path="diplome"/><input type="text" name="diplome"><br/><br/>
+Description: <form:input path="description" type = "text"/><input type="text" name="description"><br/><br/>
+
+<button type = "submit">ajouter</button>
+</form:form>

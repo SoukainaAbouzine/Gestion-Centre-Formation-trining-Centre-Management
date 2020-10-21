@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thyemleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Liste Demande Inscription</title>
+<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css"
+     th:href="@{/css/bootstrap.min.css}"/>
+  <link rel="stylesheet" type="text/css" href="../static/MyStyle.css"
+     th:href="@{/css/MyStyle.css}"/>
+
+
+</head>
+<body>
+
+   <h1>List Utilisateur </h1>
+<div class="container spacer">
+<table classe="table table-striped">
+<thead>
+<tr>
+<th>ID</th>
+<th>Nom</th>
+<th>prenom</th>
+<th>Usename</th>
+<th>Password</th>
+<th>telephon</th>
+<th>Email</th>
+<th>role</th>
+<th>Date de creation</th>
+
+</tr>
+</thead>
+<tbody>
+<tr th:each="u:${listUtilisateur}">
+<td th:text="${u.id}"></td>
+<td th:text="${u.nome}"></td>
+<td th:text="${u.prenome}"></td>
+<td th:text="${u.username}"></td>
+<td th:text="${u.password}"></
+<td th:text="${u.telephone}"></td>
+<td th:text="${u.email}"></td>
+<td th:text="${u.role}"></td>
+<td th:text="${u.dateCreation}"></td>
+<td><a th:href="@{'/listUtilisateur/delete/' + ${u.id}  }" class="btn btn-danger">Delete</a></td>
+<td><a th:href="@{'/listUtilisateur/update/' + ${u.id}  }" class="btn btn-danger">Modifier</a></td>
+<!-- <a class="btn btn-default" role="button" th:href="listUtilisateur/${u.id}">Delet</a> -->
+<ul  class="nav nav-pills">
+<li th:each="Page,status:${pages}">
+<a th:class="${status.index==currentPage?'btn btn-primary':'btn'}"
+th:href="${'/listUtilisateur/(Page=${status.index},size=${size})}" ></a>
+</li>
+</ul>
+</tr>
+</tbody>
+</div>
+     
+         <!-- Pagination Bar -->
+    <div th:fragment='paginationbar'>
+        <div>
+            <ul class='pagination pagination-centered'>
+                <li th:class="${page.firstPage}?'disabled':''">
+                <span th:if='${page.firstPage}'>← First</span>
+                <a th:if='${not page.firstPage}' th:href='@{${page.url}(page=0,size=${page.size})}'>← First</a>
+                </li>
+                <li th:class="${page.hasPreviousPage}? '' : 'disabled'">
+                <span th:if='${not page.hasPreviousPage}'>«</span>
+                <a th:if='${page.hasPreviousPage}' th:href='@{${page.url}(page=${page.number-2},size=${page.size})}' title='Go to previous page'>«</a>
+                </li>
+                <li th:each='item : ${page.items}' th:class="${item.current}? 'active' : ''">
+                <span th:if='${item.current}' th:text='${item.number}'>1</span>
+                <a th:if='${not item.current}' th:href='@{${page.url}(page=${item.number-1},size=${page.size})}'><span th:text='${item.number}'>1</span></a>
+                </li>
+                <li th:class="${page.hasNextPage}? '' : 'disabled'">
+                <span th:if='${not page.hasNextPage}'>»</span>
+                <a th:if='${page.hasNextPage}' th:href='@{${page.url}(page=${page.number},size=${page.size})}' title='Go to next page'>»</a>
+                </li>
+                <li th:class="${page.lastPage}? 'disabled' : ''">
+                <span th:if='${page.lastPage}'>Last →</span>
+                <a th:if='${not page.lastPage}' th:href='@{${page.url}(page=${page.totalPages - 1},size=${page.size})}'>Last →</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

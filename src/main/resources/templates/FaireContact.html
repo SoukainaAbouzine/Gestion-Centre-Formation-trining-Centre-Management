@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thyemleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Ajouter Etudiant</title>
+<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css"
+     th:href="@{/css/bootstrap.min.css}"/>
+  <link rel="stylesheet" type="text/css" href="../static/MyStyle.css"
+     th:href="@{/css/MyStyle.css}"/>
+      <h1>Add Contact</h1>
+<form  th:object="${ajouterContacte}" th:action="@{/saveContact}" action="/saveContact" method="post">
+Enter Name: <form:input path="nome"/><input type="text" name="name"><br/><br/>
+Enter Prenome: <form:input path="prenome"/><input type="text" name="prenom"><br/><br/>
+
+Enter Email: <form:input path="email"/><input type="text" name="email"><br/><br/>
+Enter Telephone: <form:input path="telephone"/><input type="text" name="telephone"><br/><br/>
+Enter message: <form:input path="message"/><input type="text" name="message"><br/><br/>
+Date de Contact: <form:input path="dateContacte" type = "date"/><input type="date" name="dateContacte"><br/><br/>
+
+     
+<button type = "submit">ajouter</button><br/><br/>
+
+          
+</form:form>

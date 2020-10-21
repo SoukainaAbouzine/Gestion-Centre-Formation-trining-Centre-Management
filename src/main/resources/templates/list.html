@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title>Utilisateur</title>
+    <th:block th:include="layout/header"></th:block>
+</head>
+<body>
+<div class="container">
+    <!-- <div th:if="${not #lists.isEmpty(products)}"> -->
+        <h2>All Users</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Prenom</th>
+                <th>role</th>
+                <th>Date de Creation</th>
+                
+            </tr>
+            <tr th:each="u : ${Utilisateur}">
+                <td th:text="${u.id}">Id</td>
+                <td th:text="${u.nome}">Name</td>
+                <td th:text="${u.prenome}">Prenom</td>
+                <td th:text="${u.role}">role</td>
+                <td th:date="${u.dateCreation}">Date de Creation</td>
+                                <td><a th:href="${'/list/hanae/' + Utilisateur.id}" class="btn btn-default">Ajouter</a></td>
+                <!-- <td><a th:href="${'/products/delete/' + product.id}" class="btn btn-danger">Delete</a></td> -->
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>
